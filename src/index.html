@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="form1">
         <div class="form">
             <form action="">
                 <h1>Stay updated!</h1>
@@ -24,8 +24,12 @@
                 <label for="email" class="emailHeading">
                      Email address
                 </label>
+                <label for="emailError" class="emailError">Valid email required</label>
                 <input type="text" placeholder="email@company.com">
-                <button class="subscribe">Subscribe to monthly newsletter</button>
+                <button type="button" class="subscribe"
+                onclick= "showNextForm('form1', 'form2')">
+                Subscribe to monthly newsletter
+                </button>
 
             </form>
         </div>
@@ -33,12 +37,37 @@
             <img src="../assets/images/illustration-sign-up-desktop.svg" alt="SVG Desktop Image" class="svgDesktopImage">
         </div>
     </div>
-    <div class="confirmation">
+    <div class="hideContain" id="form2">
+        <img src="../assets/images/icon-success.svg" alt="SVGsuccess">
         <h1>Thanks for subscribing!</h1>
         <p>A confirmation email has been sent to</p>
-        <p><b>ash@loremcompany.com.</b> Please open it and cpck</p>
+        <p><b>ash@loremcompany.com.</b> Please open it and click</p>
         <p>the button inside to confirm your subscription.</p>
-        <button>Dismiss message</button>
+        <button class="dismiss"
+        onclick="changeForm()">Dismiss message</button>
     </div>
+
+    <!--Now coding for Javascript-->
+
+    <script>
+        function showNextForm(currentFormId, NextFormId) {
+
+            // event.preventDefault();
+
+            var currentForm = document.getElementById(currentFormId)
+            var NextForm = document.getElementById(NextFormId)
+
+            currentForm.classList.remove('container')
+            currentForm.classList.add('hideContain')
+            NextForm.classList.remove('hideContain')
+            NextForm.classList.add('showConfirmation')
+        }
+
+        function changeForm() {
+            var dismissButton = document.querySelector('.dismiss');
+
+            dismissButton.style.background = "hsl(234, 29%, 20%)";
+        }
+    </script>
 </body>
 </html>
