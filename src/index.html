@@ -25,11 +25,14 @@
                      Email address
                 </label>
                 <label for="emailError" class="emailError">Valid email required</label>
-                <input type="text" placeholder="email@company.com">
+                <input type="text" placeholder="email@company.com" id="email" class="initalEmailInput">
                 <button type="button" class="subscribe"
-                onclick= "showNextForm('form1', 'form2')">
+                onclick= "
+                validateEmail() ? showNextForm('form1', 'form2') : inputError()
+                ">
                 Subscribe to monthly newsletter
                 </button>
+                <!-- <button type="button" class="subscribe">Subscribe to monthly newsletter</button> -->
 
             </form>
         </div>
@@ -68,6 +71,30 @@
 
             dismissButton.style.background = "hsl(234, 29%, 20%)";
         }
+
+        function validateEmail(){
+            const email = document.getElementById("email").value
+            const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+            return pattern.test(email)
+        }
+
+        // function wrongInput() {
+        //     alert("Wrong email entered !")
+        // }
+
+        function inputError() {
+            var initialInput = document.querySelector(".initalEmailInput")
+            var emailError = document.querySelector(".emailError")
+
+            initialInput.style.color = "rgb(241, 11, 11, 0.89)"
+            initialInput.style.border = "1px solid rgba(255, 0, 0, 0.3)"
+            initialInput.style.background = "rgba(255, 0, 0, 0.2)"
+            emailError.style.display = "show"
+        }
+
+        // document.querySelector('.subscribe').addEventListener('click', function() {
+        //     validateEmail() ? showNextForm('form1', 'form2') : wrongInput();
+        // })
     </script>
 </body>
 </html>

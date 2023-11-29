@@ -94,7 +94,7 @@ p img {
     /* text-align-last: auto; */
 }
 
-input {
+.initalEmailInput {
     margin-left: 40px;
     margin-bottom: 15px;
     height: 45px;
@@ -106,13 +106,21 @@ input {
     border: 1px solid #8F99BB;
     outline: none;
     padding: 20px;
+    background: white;
 }
 
-input::after {
+/* .inputError {
     background: rgba(255, 0, 0, 0.2);
     border-color: rgba(255, 0, 0, 0.3);
     color: rgb(241, 11, 11, 0.89);
-}
+    margin-left: 40px;
+    margin-bottom: 15px;
+    height: 45px;
+    width: 280px;
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    outline: none;
+    padding: 20px;
+}   */
 
 input::placeholder {
     color: hsl(231, 7%, 60%);
