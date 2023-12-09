@@ -44,7 +44,7 @@
         <img src="../assets/images/icon-success.svg" alt="SVGsuccess">
         <h1>Thanks for subscribing!</h1>
         <p>A confirmation email has been sent to</p>
-        <p><b>ash@loremcompany.com.</b> Please open it and click</p>
+        <p><b id="addValue">ash@loremcompany.com.</b> Please open it and click</p>
         <p>the button inside to confirm your subscription.</p>
         <button class="dismiss"
         onclick="changeForm()">Dismiss message</button>
@@ -64,6 +64,10 @@
             currentForm.classList.add('hideContain')
             NextForm.classList.remove('hideContain')
             NextForm.classList.add('showConfirmation')
+
+            var userInput = document.getElementById("email").value;
+
+            document.getElementById("addValue").innerHTML = userInput;
         }
 
         function changeForm() {
@@ -89,8 +93,12 @@
             initialInput.style.color = "rgb(241, 11, 11, 0.89)"
             initialInput.style.border = "1px solid rgba(255, 0, 0, 0.3)"
             initialInput.style.background = "rgba(255, 0, 0, 0.2)"
-            emailError.style.display = "show"
+            emailError.style.display = "inline"
         }
+
+        // function emailError() {
+        //     var emaiErr = document.querySelector('.emailError')
+        // }
 
         // document.querySelector('.subscribe').addEventListener('click', function() {
         //     validateEmail() ? showNextForm('form1', 'form2') : wrongInput();
